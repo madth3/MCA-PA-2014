@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package mca.pa2014.clase05.oad;
 
 import java.io.Serializable;
@@ -38,7 +32,7 @@ public class CustomerJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Customer customer) throws PreexistingEntityException, Exception {
+    public void guardar(Customer customer) throws PreexistingEntityException, Exception {
         if (customer.getPurchaseOrderList() == null) {
             customer.setPurchaseOrderList(new ArrayList<PurchaseOrder>());
         }
@@ -93,7 +87,7 @@ public class CustomerJpaController implements Serializable {
         }
     }
 
-    public void edit(Customer customer) throws IllegalOrphanException, NonexistentEntityException, Exception {
+    public void actualizar(Customer customer) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -177,7 +171,7 @@ public class CustomerJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
+    public void borrar(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -252,14 +246,10 @@ public class CustomerJpaController implements Serializable {
         }
     }
 
-    public int getCustomerCount() {
+    public long getConteo() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Customer> rt = cq.from(Customer.class);
-            cq.select(em.getCriteriaBuilder().count(rt));
-            Query q = em.createQuery(cq);
-            return ((Long) q.getSingleResult()).intValue();
+            return (Long) em.createQuery("SELECT COUNT(cl) FROM Customer cl").getSingleResult();
         } finally {
             em.close();
         }

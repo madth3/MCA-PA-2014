@@ -7,4 +7,5 @@ import mca.pa2014.clase05.oad.CustomerJpaController
 EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersistenciaPU")
 
 def oadClientes = new CustomerJpaController(emf)
-println oadClientes.findCustomerEntities()
+println "${oadClientes.getConteo()} clientes"
+oadClientes.findCustomerEntities().each { println it }

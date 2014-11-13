@@ -10,15 +10,26 @@
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd        
                            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
     <context:annotation-config/>
-    <context:component-scan base-package="">
+    <context:component-scan base-package="mx.lania.mca.cuestionarios">
         <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan>
-    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" p:persistenceUnitName=""/>
-    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager" p:entityManagerFactory-ref="emf"/>
+    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" 
+          p:persistenceUnitName="CuestionariosPU"/>
+    <bean id="txManager" 
+          class="org.springframework.orm.jpa.JpaTransactionManager" 
+          p:entityManagerFactory-ref="emf"/>
 
-    <data:repositories base-package="" entity-manager-factory-ref="emf" transaction-manager-ref="txManager"/>
+    <data:repositories 
+        base-package="mx.lania.mca.cuestionarios.oad" 
+        entity-manager-factory-ref="emf" 
+        transaction-manager-ref="txManager"/>
     <!--
     <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy" />
     -->
 </beans>
+
+
+
+
+

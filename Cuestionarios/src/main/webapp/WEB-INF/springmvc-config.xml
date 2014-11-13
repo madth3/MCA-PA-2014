@@ -7,7 +7,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd     
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
                            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-    <context:component-scan base-package="" use-default-filters="false">
+    <context:component-scan base-package="mx.lania.mca.cuestionarios.control" use-default-filters="false">
         <context:include-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan>
     <!-- Turns on support for mapping requests to Spring MVC @Controller methods
@@ -16,7 +16,10 @@
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources -->
     <mvc:resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**"/>
     <mvc:default-servlet-handler/>
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp"/><!--
+    <bean id="viewResolver" 
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+          p:prefix="/" 
+          p:suffix=".jsp"/><!--
     Mapeo sencillo de URLs a JSPs
     -->
     <mvc:view-controller path="/index"/>

@@ -4,10 +4,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cuestionarios</title>
     </head>
     <body>
         <h1>Cuestionarios</h1>
+        
+        <a href="../nuevoCuestionario.jsp">Crear nuevo</a>
+        
         <c:forEach items="${cuestionarios}" var="cuestionario">
         <li><c:out value="${cuestionario.nombre}"/></li>
         </c:forEach>

@@ -8,7 +8,8 @@
     </head>
     <body>
         <h1>Nuevo Cuestionario</h1>
-        <springform:form action="cuestionarios/nuevo" method="POST" commandName="cuestionario" id="forma">
+        <springform:form action="cuestionarios/nuevo" method="POST" 
+                         commandName="cuestionario" id="forma">
             <label>Nombre</label>
             <input type="text" size="30" name="nombre"/>
             <label>Reactivos</label>

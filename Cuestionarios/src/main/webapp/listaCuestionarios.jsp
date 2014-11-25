@@ -10,7 +10,7 @@
         <h1>Cuestionarios</h1>
         
         <a href="../nuevoCuestionario.jsp">Crear nuevo</a>
-        
+        <br>
         <c:forEach items="${cuestionarios}" var="cuestionario">
         <li><a href="ver/<c:out value="${cuestionario.id}"/>"><c:out value="${cuestionario.nombre}"/></a></li>
         </c:forEach>

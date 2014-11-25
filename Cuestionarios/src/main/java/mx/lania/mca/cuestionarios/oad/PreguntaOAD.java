@@ -4,6 +4,7 @@ import java.util.List;
 import mx.lania.mca.cuestionarios.entidades.Pregunta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
@@ -11,6 +12,13 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface PreguntaOAD extends JpaRepository<Pregunta, Integer>{
     
-    @Query("SELECT p FROM Pregunta p WHERE p.cuestionario.id = ?1")
-    public List<Pregunta> getPreguntasDeCuestionario(Integer idCuestionario);
+    @Query("SELECT p FROM Pregunta p WHERE p.cuestionario.id =:idc")
+    public List<Pregunta> getPreguntasDeCuestionario(@Param("idc")Integer idCuestionario);
 }
+
+
+
+
+
+
+

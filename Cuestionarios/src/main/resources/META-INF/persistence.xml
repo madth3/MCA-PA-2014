@@ -3,6 +3,7 @@
   <persistence-unit name="CuestionariosPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>mx.lania.mca.cuestionarios.entidades.Cuestionario</class>
+    <class>mx.lania.mca.cuestionarios.entidades.Pregunta</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/cuestionarios"/>
